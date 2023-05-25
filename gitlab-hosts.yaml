@@ -1,0 +1,34 @@
+# Load under -b data
+- !policy
+  id: jtan/gitlab
+  body:
+  - !layer
+  - &gitlab-hosts
+    - !host
+      id: joetanx/aws-cli-demo
+      annotations:
+        authn-jwt/jtan-gitlab/ref: main
+        authn-jwt/jtan-gitlab/namespace_path: joetanx
+        authn-jwt/jtan-gitlab/user_email: joe.tan@cyberark.com
+        authn/api-key: true
+    - !host
+      id: joetanx/terraform-aws-s3-demo
+      annotations:
+        authn-jwt/jtan-gitlab/ref: main
+        authn-jwt/jtan-gitlab/namespace_path: joetanx
+        authn-jwt/jtan-gitlab/user_email: joe.tan@cyberark.com
+        authn/api-key: true
+    - !host
+      id: joetanx/terraform-aws-s3-cleanup
+      annotations:
+        authn-jwt/jtan-gitlab/ref: main
+        authn-jwt/jtan-gitlab/namespace_path: joetanx
+        authn-jwt/jtan-gitlab/user_email: joe.tan@cyberark.com
+        authn/api-key: true
+  - !grant 
+    role: !layer
+    members: *gitlab-hosts
+
+- !grant
+  role: !group vault/jtan/delegation/consumers
+  member: !layer jtan/gitlab
