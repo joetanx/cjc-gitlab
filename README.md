@@ -101,7 +101,9 @@ Ref: https://docs-er.cyberark.com/ConjurCloud/en/Content/HomeTilesLPs/LP-Tile4.h
 
 ## 3. Conjur policies for GitLab JWT
 
-### 3.1. gitlab-hosts.yaml
+## 3.1. Details of Conjur policies used in this demo
+
+#### 3.1.1. gitlab-hosts.yaml
 
 - `jtan/gitlab` - policy name, this forms the `identity-path` of the app IDs
 - applications `joetanx/aws-access-key-demo`, `joetanx/terraform-aws-s3-demo` and `joetanx/terraform-aws-s3-cleanup` are configured
@@ -109,7 +111,7 @@ Ref: https://docs-er.cyberark.com/ConjurCloud/en/Content/HomeTilesLPs/LP-Tile4.h
   - annotations of the `host` are optional and corresponds to claims in the JWT token claims - the more specific the annotations/claims configured, the more precise and secure the application authentication
 - the host layer is granted as a member of the `vault/jtan/delegation/consumers` group to authorize access to the AWS secret access key synchronized from Privilege Cloud
 
-### 3.2. authn-jwt-gitlab.yaml
+#### 3.1.2. authn-jwt-gitlab.yaml
 
 - Configures the JWT authenticator (https://docs-er.cyberark.com/ConjurCloud/en/Content/Operations/Services/cjr-authn-jwt-uc.htm)
 - Defines the authenticator webservice at `authn-jwt/jtan-gitlab`
@@ -126,6 +128,39 @@ Ref: https://docs-er.cyberark.com/ConjurCloud/en/Content/HomeTilesLPs/LP-Tile4.h
 
 - Defines `consumers` group - applications that are authorized to authenticate using this JWT authenticator are added to this group
 - Defines `operators` group - users who are authorized to check the status of this JWT authenticator are added to this group
+
+## 3.2. Load the Conjur policies and prepare Conjur for GitLab JWT
+
+Login to Conjur:
+
+```console
+conjur init -u https://<subdomain>.secretsmgr.cyberark.cloud/api
+conjur login -i <username> -p <password>
+```
+
+Download and load the Conjur policies:
+
+```console
+curl -sLO https://github.com/joetanx/cjc-gitlab/raw/main/authn-jwt-gitlab.yaml
+curl -sLO https://github.com/joetanx/cjc-gitlab/raw/main/gitlab-hosts.yaml
+conjur policy load -b data -f authn-jwt-gitlab.yaml
+conjur policy load -b data -f gitlab-hosts.yaml
+```
+
+Enable the JWT Authenticator:
+
+```console
+conjur authenticator enable --id authn-jwt/jtan-gitlab
+```
+
+Populate the variables:
+
+```console
+conjur variable set -i conjur/authn-jwt/jtan-gitlab/jwks-uri -v https://gitlab.com/-/jwks/
+conjur variable set -i conjur/authn-jwt/jtan-gitlab/token-app-property -v project_path
+conjur variable set -i conjur/authn-jwt/jtan-gitlab/identity-path -v data/jtan/gitlab
+conjur variable set -i conjur/authn-jwt/jtan-gitlab/issuer -v https://gitlab.com
+```
 
 ## 4. GitLab Projects
 
