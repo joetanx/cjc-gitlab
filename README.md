@@ -8,7 +8,7 @@
 
 - Example JWT
 
-```console
+```json
 {
   "namespace_id": "59407538",
   "namespace_path": "joetanx",
@@ -89,7 +89,7 @@ Ref: https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/PASI
 
 ### 2.3. Configure account sync from Privilege Cloud to Conjur Cloud
 
-Ref: https://docs-er.cyberark.com/ConjurCloud/en/Content/HomeTilesLPs/LP-Tile4.htm
+Ref: https://docs.cyberark.com/Product-Doc/OnlineHelp/ConjurCloud/Latest/en/Content/HomeTilesLPs/LP-Tile4.htm
 
 ![image](https://github.com/joetanx/cjc-gitlab-terraform/assets/90442032/32ccdc75-0b21-4497-9910-37c66a58b935)
 
@@ -113,7 +113,7 @@ Ref: https://docs-er.cyberark.com/ConjurCloud/en/Content/HomeTilesLPs/LP-Tile4.h
 
 #### 3.1.2. authn-jwt-gitlab.yaml
 
-- Configures the JWT authenticator (https://docs-er.cyberark.com/ConjurCloud/en/Content/Operations/Services/cjr-authn-jwt-uc.htm)
+- Configures the JWT authenticator (https://docs.cyberark.com/Product-Doc/OnlineHelp/ConjurCloud/Latest/en/Content/Operations/Services/cjr-authn-jwt-uc.htm)
 - Defines the authenticator webservice at `authn-jwt/jtan-gitlab`
   - The format of the authenticator webservice is `authn-jwt/<service-id>`, the `<service-id>` used in this demo is `jtan-gitlab`, this is the URI where the GitLab pipeline will authenticate to.
 
@@ -310,6 +310,6 @@ Output for delete bucket job:
 
 ## 5. Audit Events
 
-[Activities](https://docs-er.cyberark.com/ConjurCloud/en/Content/Audit/isp_system-activities.htm) in Conjur Cloud can be viewed on CyberArk Audit where details of the action (e.g. authenicate, fetch) and the host identities are recorded
+[Activities](https://docs.cyberark.com/Product-Doc/OnlineHelp/ConjurCloud/Latest/en/Content/Audit/isp_system-activities.htm) in Conjur Cloud can be viewed on CyberArk Audit where details of the action (e.g. authenicate, fetch) and the host identities are recorded
 
 ![image](https://github.com/joetanx/cjc-gitlab-terraform/assets/90442032/837f69f0-077d-42e1-9f31-598b0ac3f447)
