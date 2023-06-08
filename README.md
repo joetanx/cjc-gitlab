@@ -143,7 +143,7 @@ Download and load the Conjur policies:
 ```console
 curl -sLO https://github.com/joetanx/cjc-gitlab/raw/main/authn-jwt-gitlab.yaml
 curl -sLO https://github.com/joetanx/cjc-gitlab/raw/main/gitlab-hosts.yaml
-conjur policy load -b data -f authn-jwt-gitlab.yaml
+conjur policy load -b conjur/authn-jwt -f authn-jwt-gitlab.yaml
 conjur policy load -b data -f gitlab-hosts.yaml
 ```
 
