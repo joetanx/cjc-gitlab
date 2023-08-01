@@ -191,7 +191,7 @@ There are 2 stages in the pipeline code below:
   - Run Terraform using `docker.io/hashicorp/terraform:latest` image
   - Run AWS CLI using `docker.io/amazon/aws-cli:latest` image
 
-https://github.com/joetanx/cjc-gitlab/blob/d29264f323e69e27510e3dee4787810e38a5ea23/aws-cli-demo/.gitlab-ci.yml#L1-L32
+https://github.com/joetanx/cjc-gitlab/blob/8e47ce4091ef06e2dadbf9a80a24f99b87d38020/aws-cli-demo/.gitlab-ci.yml#L1-L32
 
 ![image](https://github.com/joetanx/cjc-gitlab/assets/90442032/c76dfa39-59a9-4398-81d2-6558daaa97fd)
 
@@ -238,7 +238,7 @@ There are 2 stages in the pipeline code below:
   - Pass the credentials to the next stage using `artifacts:`, `reports:`, `dotenv:`
 2. Run Terraform to create S3 bucket according to `main.tf` using credentials from Conjur
 
-https://github.com/joetanx/cjc-gitlab/blob/d29264f323e69e27510e3dee4787810e38a5ea23/terraform-aws-s3-demo/.gitlab-ci.yml#L1-L25
+https://github.com/joetanx/cjc-gitlab/blob/49bdde52830178890f7e0f3dfff91f2fce6d0989/terraform-aws-s3-demo/.gitlab-ci.yml#L1-L25
 
 ![image](https://github.com/joetanx/cjc-gitlab/assets/90442032/c5b69506-c149-4a92-a532-f4cf34ef7138)
 
@@ -282,7 +282,7 @@ There are 3 stages in the pipeline code below:
 2. Run AWS CLI to get the demo file from the S3 bucket created above using credentials from Conjur
 3. Manual job to delete the bucket
 
-https://github.com/joetanx/cjc-gitlab/blob/d29264f323e69e27510e3dee4787810e38a5ea23/terraform-aws-s3-cleanup/.gitlab-ci.yml#L1-L34
+https://github.com/joetanx/cjc-gitlab/blob/a883932da82feb94b8cdd2e65f2dd572add83500/terraform-aws-s3-cleanup/.gitlab-ci.yml#L1-L34
 
 ![image](https://github.com/joetanx/cjc-gitlab/assets/90442032/8df6cdf4-4732-4112-8f75-b0ce0de9d358)
 
