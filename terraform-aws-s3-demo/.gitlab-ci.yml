@@ -7,7 +7,7 @@ variables:
 Fetch variables from Conjur:
   stage: .pre
   image:
-    name: docker.io/nfmsjoeg/authn-jwt-gitlab:latest
+    name: docker.io/cyberark/authn-jwt-gitlab:alpine-1.0.0
   script:
     - echo AWS_ACCESS_KEY_ID=$(CONJUR_SECRET_ID="data/vault/jtan/Cloud Service-aws-access-keys-jtan-jtan-cjc/AWSAccessKeyID" /authn-jwt-gitlab) >> conjurVariables.env
     - echo AWS_SECRET_ACCESS_KEY=$(CONJUR_SECRET_ID="data/vault/jtan/Cloud Service-aws-access-keys-jtan-jtan-cjc/password" /authn-jwt-gitlab) >> conjurVariables.env
