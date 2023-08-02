@@ -37,7 +37,7 @@
 > 
 > To get the value:
 > 
-> - use `echo CI_JOB_JWT_V2 | base64`
+> - use `echo ${CI_JOB_JWT_V2} | base64`
 > 
 > - [decode](https://www.base64decode.org/) the base64 output
 > 
