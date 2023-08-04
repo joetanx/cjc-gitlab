@@ -106,7 +106,7 @@ Ref: https://docs.cyberark.com/Product-Doc/OnlineHelp/ConjurCloud/Latest/en/Cont
 #### 3.1.1. gitlab-hosts.yaml
 
 - `jtan/gitlab` - policy name, this forms the `identity-path` of the app IDs
-- applications `joetanx/aws-access-key-demo`, `joetanx/terraform-aws-s3-demo` and `joetanx/terraform-aws-s3-cleanup` are configured
+- applications `joetanx/aws-cli-demo`, `joetanx/terraform-aws-s3-demo` and `joetanx/terraform-aws-s3-cleanup` are configured
   - the `id` of the `host` corresponds to the `token-app-property`
   - annotations of the `host` are optional and corresponds to claims in the JWT token claims - the more specific the annotations/claims configured, the more precise and secure the application authentication
 - the host layer is granted as a member of the `vault/jtan/delegation/consumers` group to authorize access to the AWS secret access key synchronized from Privilege Cloud
