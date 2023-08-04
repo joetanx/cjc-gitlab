@@ -191,7 +191,7 @@ There are 2 stages in the pipeline code below:
   - Run Terraform using `docker.io/hashicorp/terraform:latest` image
   - Run AWS CLI using `docker.io/amazon/aws-cli:latest` image
 
-https://github.com/joetanx/cjc-gitlab/blob/8e47ce4091ef06e2dadbf9a80a24f99b87d38020/aws-cli-demo/.gitlab-ci.yml#L1-L32
+https://github.com/joetanx/cjc-gitlab/blob/9de34850e90a07ff595f03dd9906175b114a77fa/aws-cli-demo/.gitlab-ci.yml#L1-L32
 
 ![image](https://github.com/joetanx/cjc-gitlab/assets/90442032/c76dfa39-59a9-4398-81d2-6558daaa97fd)
 
