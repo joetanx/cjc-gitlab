@@ -33,7 +33,9 @@
 }
 ```
 
-> **Note** The value of `CI_JOB_JWT_V2` is masked on GitLab jobs
+> [!Note]
+>
+> The value of `CI_JOB_JWT_V2` is masked on GitLab jobs
 > 
 > To get the value:
 > 
@@ -268,11 +270,7 @@ GitLab project name: `Terraform AWS S3 Cleanup`
 
 ![image](https://github.com/joetanx/cjc-gitlab/assets/90442032/2e811dea-2cce-4ff4-afe9-e073c1943d5f)
 
-#### 4.3.2. Create the [main.tf](/aws-cli-demo/main.tf) file
-
-![image](https://github.com/joetanx/cjc-gitlab/assets/90442032/49a989a5-4d58-41cb-a018-30cc73546759)
-
-#### 4.3.3. Edit the GitLab CI/CD file
+#### 4.3.2. Edit the GitLab CI/CD file
 
 There are 3 stages in the pipeline code below:
 1. Fetch variables from Conjur (using CyberArk GitLab runner image)
@@ -286,7 +284,7 @@ https://github.com/joetanx/cjc-gitlab/blob/a883932da82feb94b8cdd2e65f2dd572add83
 
 ![image](https://github.com/joetanx/cjc-gitlab/assets/90442032/8df6cdf4-4732-4112-8f75-b0ce0de9d358)
 
-#### 4.2.4. Pipeline run results
+#### 4.2.3. Pipeline run results
 
 Both jobs passed in the pipeline (manual job is pending manual activation):
 
